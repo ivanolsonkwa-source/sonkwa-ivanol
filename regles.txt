@@ -1,0 +1,30 @@
+RG01 - Un membre est décrit par un nom, un prénom, un pseudo, un email, un téléphone et un code postal (tous obligatoires).
+RG02 - Le pseudo d'un membre est unique.
+RG03 - L'email d'un membre est unique.
+RG04 - Un même membre peut proposer des objets et louer les objets des autres membres.
+RG05 - Un objet appartient à un et un seul membre ; un membre peut proposer plusieurs objets (ou aucun).
+RG06 - Un objet a un titre, une description, un prix par jour, une caution et un état.
+RG07 - L'état d'un objet est l'une des quatre valeurs : neuf, très bon, bon, usé.
+RG08 - Le prix par jour d'un objet est strictement positif.
+RG09 - Le propriétaire peut mettre son objet en pause (objet inactif) sans le supprimer.
+RG10 - Un objet est rangé dans une seule catégorie ; une catégorie peut contenir plusieurs objets.
+RG11 - Une catégorie peut être la sous-catégorie d'une seule autre catégorie (ex. « Perceuses » dans « Bricolage ») ; une catégorie peut avoir plusieurs sous-catégories.
+RG12 - Une catégorie ne peut pas être sa propre sous-catégorie.
+RG13 - Un objet a plusieurs photos, numérotées 1, 2, 3... dans l'ordre d'affichage.
+RG14 - Le numéro d'une photo est unique pour un objet donné, et strictement positif.
+RG15 - Une photo n'existe pas sans son objet : la suppression d'un objet supprime ses photos.
+RG16 - Pour louer un objet, un membre fait une demande de location avec une date de début et une date de fin.
+RG17 - La date de fin d'une location ne peut pas être antérieure à la date de début.
+RG18 - Le prix total de la location est enregistré au moment de la demande (il ne suit pas les changements de prix ultérieurs du propriétaire).
+RG19 - Une location a un statut parmi : demandée, acceptée, refusée, annulée, terminée.
+RG20 - Un membre ne peut pas louer son propre objet.
+RG21 - Un objet ne peut pas avoir deux locations acceptées dont les périodes se chevauchent.
+RG22 - Un objet est libre entre deux dates s'il n'a aucune location acceptée qui chevauche cette période.
+RG23 - Une location terminée permet au locataire de noter l'objet et au propriétaire de noter le locataire ; aucun avis n'est possible avant.
+RG24 - Une note est un entier compris entre 1 et 5.
+RG25 - Le commentaire d'un avis est facultatif.
+RG26 - Une location a au maximum un avis du locataire et un avis du propriétaire.
+RG27 - Un membre peut mettre des objets en favoris ; un même objet ne peut être mis en favori qu'une seule fois par un même membre.
+RG28 - La date à laquelle un favori a été ajouté est conservée.
+RG29 - (Migration) Tiroir prélève une commission sur chaque location : montant en euros, 2 décimales, jamais vide, 0 par défaut.
+RG30 - (Migration) Pour les locations déjà terminées, la commission vaut 10 % du prix total.

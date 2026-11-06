@@ -1,0 +1,22 @@
+MLD - Tiroir
+Notation : clé primaire soulignée par "#PK", clé étrangère par "#FK -> table(colonne)".
+
+MEMBRE (id_membre #PK, nom, prenom, pseudo UNIQUE, email UNIQUE, telephone, code_postal)
+
+CATEGORIE (id_categorie #PK, nom, id_categorie_parent #FK -> CATEGORIE(id_categorie) [NULL autorisé : catégorie racine])
+
+OBJET (id_objet #PK, titre, description, prix_jour, caution, etat, actif, id_membre #FK -> MEMBRE(id_membre), id_categorie #FK -> CATEGORIE(id_categorie))
+
+PHOTO (id_objet #PK #FK -> OBJET(id_objet) [ON DELETE CASCADE], numero #PK, url)
+
+LOCATION (id_location #PK, date_debut, date_fin, prix_total, statut, id_objet #FK -> OBJET(id_objet), id_locataire #FK -> MEMBRE(id_membre))
+
+AVIS (id_location #PK #FK -> LOCATION(id_location), sens #PK, note, commentaire, date_avis)
+
+FAVORI (id_membre #PK #FK -> MEMBRE(id_membre), id_objet #PK #FK -> OBJET(id_objet), date_ajout)
+
+Remarques :
+- PHOTO et AVIS ont une clé primaire composée : l'entité est identifiée relativement à OBJET (photo) ou à LOCATION (avis).
+- AVIS.sens vaut 'LOCATAIRE' (le locataire note l'objet) ou 'PROPRIETAIRE' (le propriétaire note le locataire) : la clé (id_location, sens) garantit au maximum un avis de chaque côté.
+- FAVORI vient de l'association (0,N)-(0,N) MEMBRE - OBJET portant l'attribut date_ajout.
+- La colonne LOCATION.commission est ajoutée plus tard par la migration 04.
