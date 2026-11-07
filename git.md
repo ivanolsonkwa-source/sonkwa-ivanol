@@ -12,7 +12,8 @@ git init -b main
 echo "# Tiroir" > README.md
 git add README.md
 git commit -m "Initial commit : ajout du README"
-git remote add origin https://github.com/<utilisateur>/tiroir.git
+git remote add origin https://github.com/<ivanolsonkwa-source
+>/tiroir.git
 git push -u origin main
 ```
 
